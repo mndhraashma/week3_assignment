@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Aashma Manandhar, a Bachelor of Information Technology student.">
+  <title>Aashma Manandhar | BIT Student Portfolio</title>
+
+  <!-- All presentation lives in this one external stylesheet (no inline styles). -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Skip link: lets keyboard users jump past the navigation. -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top">Aashma<span>.</span></a>
+      <nav aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO: introduction + photo. Photo slot swaps by changing the src below. -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="eyebrow">Bachelor of Information Technology</p>
+          <h1 id="hero-title">Hi, I'm Aashma Manandhar.</h1>
+          <p class="lead">
+            I'm an IT student in Kathmandu who enjoys turning classroom ideas into
+            small, working software. Right now I'm learning how to build clean,
+            accessible websites.
+          </p>
+          <div class="button-row">
+            <a class="btn btn-primary" href="#projects">See my projects</a>
+            <a class="btn btn-outline" href="#contact">Get in touch</a>
+          </div>
+        </div>
+        <figure class="hero-photo">
+          <!-- TODO: save your photo as assets/profile.jpg and change the src to "assets/profile.jpg" -->
+          <img src="assets/profile-placeholder.svg" alt="Portrait of Aashma Manandhar" width="400" height="400">
+        </figure>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container narrow">
+        <h2 id="about-title">About me</h2>
+        <p>
+          I am studying for a BIT degree at International American University (IAU).
+          The course mixes programming, databases, networking and software
+          engineering, and I like that every semester lets me connect theory to
+          something I can actually run.
+        </p>
+        <p>
+          Outside lectures I practise by rebuilding small tools and web pages,
+          then fixing whatever breaks. This portfolio is my second web project and
+          the first one where the design is fully written in CSS.
+        </p>
+      </div>
+    </section>
+
+    <!-- SKILLS: list of six subject areas, laid out with CSS Grid -->
+    <section class="section section-tint" id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <h2 id="skills-title">What I'm studying</h2>
+        <ul class="skill-grid">
+          <li class="skill-card">
+            <h3>Programming</h3>
+            <p>C and Java fundamentals, loops, functions and object-oriented thinking.</p>
+          </li>
+          <li class="skill-card">
+            <h3>Data Structures</h3>
+            <p>Arrays, stacks, queues, linked lists, trees and common sorting methods.</p>
+          </li>
+          <li class="skill-card">
+            <h3>Database Systems</h3>
+            <p>ER diagrams, normalisation and writing SQL queries in MySQL.</p>
+          </li>
+          <li class="skill-card">
+            <h3>Web Technologies</h3>
+            <p>Semantic HTML, CSS layout, and the basics of how browsers work.</p>
+          </li>
+          <li class="skill-card">
+            <h3>Computer Networks</h3>
+            <p>OSI and TCP/IP layers, IP addressing and how data moves between devices.</p>
+          </li>
+          <li class="skill-card">
+            <h3>Software Engineering</h3>
+            <p>Requirements, UML diagrams, testing and working in teams with Git.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PROJECTS: each project is an <article>, laid out with CSS Grid -->
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <h2 id="projects-title">Selected projects</h2>
+        <!-- TODO: replace both projects below with your real coursework. -->
+        <div class="project-grid">
+          <article class="project-card">
+            <h3>Student Record System</h3>
+            <p class="tag-line">C &middot; File handling</p>
+            <p>
+              A console program that adds, searches, edits and deletes student
+              records, with marks stored in a file between runs.
+            </p>
+          </article>
+          <article class="project-card">
+            <h3>Library Database Design</h3>
+            <p class="tag-line">MySQL &middot; ER modelling</p>
+            <p>
+              A database for books, members and borrowing history, with queries
+              for overdue books and the most borrowed titles.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section section-dark" id="contact" aria-labelledby="contact-title">
+      <div class="container narrow centered">
+        <h2 id="contact-title">Let's connect</h2>
+        <p>I'm open to internships, study groups and feedback on my work.</p>
+        <ul class="contact-list">
+          <li><a href="mailto:aashmamndhr@gmail.com">aashmamndhr@gmail.com</a></li>
+          <li><a href="https://linkedin.com/in/aashma-manandhar">LinkedIn</a></li>
+          <li><a href="https://github.com/mndhraashma">GitHub</a></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2026 Aashma Manandhar</p>
+      <p>CSE 230: Web Design and Development</p>
+    </div>
+  </footer>
+
+</body>
+</html>

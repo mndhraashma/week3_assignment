@@ -1,0 +1,244 @@
+/* ==========================================================
+   style.css - Portfolio of Aashma Manandhar
+   CSE 230: Web Design and Development
+   Sections: 1 Tokens | 2 Base | 3 Layout | 4 Components
+             5 Tablet breakpoint | 6 Mobile breakpoint
+   ========================================================== */
+
+/* ---------- 1. Design tokens (colours, fonts, spacing) ---------- */
+:root {
+  --navy: #1f2a44;        /* main text and dark sections */
+  --crimson: #b3263e;     /* accent, inspired by Nepal's flag */
+  --saffron: #e9a23b;     /* secondary highlight */
+  --cream: #faf6ee;       /* page background */
+  --sand: #f0e8d8;       /* tinted section background */
+  --white: #ffffff;
+  --muted: #4b5568;       /* secondary text */
+
+  --font-heading: Georgia, "Times New Roman", serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+
+  --radius: 12px;
+  --shadow: 0 4px 14px rgba(31, 42, 68, 0.12);
+  --space: 1.5rem;
+}
+
+/* ---------- 2. Base reset and typography ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--navy);
+  background: var(--cream);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  line-height: 1.2;
+  margin: 0 0 0.75rem;
+}
+h1 { font-size: clamp(2rem, 5vw, 3.2rem); }
+h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); }
+h3 { font-size: 1.25rem; }
+
+p { margin: 0 0 1rem; }
+ul { margin: 0; padding: 0; list-style: none; }
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--crimson); }
+a:hover { color: var(--navy); }
+
+/* Visible keyboard focus for accessibility */
+a:focus-visible {
+  outline: 3px solid var(--saffron);
+  outline-offset: 3px;
+}
+
+/* ---------- 3. Layout helpers ---------- */
+.container {
+  width: min(1100px, 100% - 2.5rem);
+  margin-inline: auto;
+}
+.narrow { max-width: 720px; }
+.centered { text-align: center; }
+
+.section { padding: 4.5rem 0; }
+.section-tint { background: var(--sand); }
+.section-dark { background: var(--navy); color: var(--cream); }
+.section-dark a { color: var(--saffron); }
+.section-dark a:hover { color: var(--white); }
+
+/* ---------- 4. Components ---------- */
+
+/* Skip link (hidden until focused) */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  background: var(--navy);
+  color: var(--white);
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  z-index: 20;
+}
+.skip-link:focus { top: 1rem; color: var(--white); }
+
+/* Header + navigation (Flexbox) */
+.site-header {
+  background: var(--white);
+  border-bottom: 4px solid var(--crimson);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 0;
+}
+.brand {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--navy);
+  text-decoration: none;
+}
+.brand span { color: var(--crimson); }
+
+.nav-list { display: flex; gap: 1.75rem; }
+.nav-list a {
+  color: var(--navy);
+  text-decoration: none;
+  font-weight: 600;
+  padding-bottom: 0.2rem;
+  border-bottom: 2px solid transparent;
+}
+.nav-list a:hover { border-bottom-color: var(--crimson); }
+
+/* Hero (CSS Grid: text + photo) */
+.hero { padding: 4.5rem 0; }
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.eyebrow {
+  color: var(--crimson);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+.lead { font-size: 1.2rem; color: var(--muted); }
+
+.hero-photo { margin: 0; }
+.hero-photo img {
+  width: 100%;
+  max-width: 380px;
+  margin-inline: auto;
+  border-radius: 50%;
+  border: 6px solid var(--saffron);
+  box-shadow: var(--shadow);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+/* Buttons (Flexbox row) */
+.button-row { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; }
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 2px solid var(--crimson);
+  transition: background 0.2s, color 0.2s;
+}
+.btn-primary { background: var(--crimson); color: var(--white); }
+.btn-primary:hover { background: var(--navy); border-color: var(--navy); color: var(--white); }
+.btn-outline { background: transparent; color: var(--crimson); }
+.btn-outline:hover { background: var(--crimson); color: var(--white); }
+
+/* Skills (CSS Grid: 3 columns on desktop) */
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space);
+  margin-top: 2rem;
+}
+.skill-card {
+  background: var(--white);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  border-top: 5px solid var(--saffron);
+  box-shadow: var(--shadow);
+}
+.skill-card p { margin: 0; color: var(--muted); font-size: 0.98rem; }
+
+/* Projects (CSS Grid: 2 columns on desktop) */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.project-card {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: var(--radius);
+  border-left: 6px solid var(--crimson);
+  box-shadow: var(--shadow);
+}
+.tag-line {
+  color: var(--crimson);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+/* Contact list (Flexbox) */
+.contact-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  font-weight: 600;
+}
+
+/* Footer (Flexbox) */
+.site-footer { background: #151d31; color: #c9cfdc; padding: 1.25rem 0; font-size: 0.9rem; }
+.footer-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+.footer-inner p { margin: 0; }
+
+/* ---------- 5. Tablet breakpoint (max 850px) ---------- */
+@media (max-width: 850px) {
+  .hero-grid { grid-template-columns: 1fr; text-align: center; }
+  .hero-photo { order: -1; }          /* photo above text */
+  .hero-photo img { max-width: 260px; }
+  .button-row { justify-content: center; }
+  .skill-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ---------- 6. Mobile breakpoint (max 600px) ---------- */
+@media (max-width: 600px) {
+  .header-inner { flex-direction: column; }
+  .nav-list { gap: 1.1rem; flex-wrap: wrap; justify-content: center; }
+  .section, .hero { padding: 3rem 0; }
+  .skill-grid, .project-grid { grid-template-columns: 1fr; }
+  .footer-inner { justify-content: center; text-align: center; }
+}
+
+/* Respect users who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn { transition: none; }
+}
